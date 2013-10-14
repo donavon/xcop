@@ -1,7 +1,7 @@
 {
     "name": "xcop",
     "description": "An XHR Cross Origin Proxy allows you to make XHR requests to different friendly API services.",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "homepage": "https://github.com/NobleJS/xcop",
     "author": {
         "name": "NobleJS"

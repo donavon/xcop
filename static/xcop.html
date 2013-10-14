@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>XHR Cross Origin Proxy</title>
-    </head>
-    <body>
-        <script>
-            "use strict";
+<head>
+    <title>XHR Cross Origin Proxy (XCOP)</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        var checkWhiteList = true;
+        var whiteList = ["http://127.0.0.1:9000", "http://localhost:9000"];
+
+        var origin = decodeURIComponent(location.search.match(/\?origin=(.*)/)[1]);
+        if (checkWhiteList && whiteList.indexOf(origin) === -1) {
+            window.parent.postMessage(JSON.stringify({ type: "XCOP-ERROR", message: "XCOP: Origin not in white list." }), origin);
+        } else {
             window.onmessage = function (msg) {
-                if (msg.source === window.parent && location.hostname === msg.origin.split(":")[1].substr(2)) { // "http://example.com:8888" => "example.com"
+                if (msg.source === window.parent && origin === msg.origin) {
                     var data = JSON.parse(msg.data);
                     var id = data.id;
                     var request = data.request;
@@ -22,7 +29,7 @@
                         if (xhr.readyState === xhr.DONE) {
                             var headers = {};
                             var htext = xhr.getAllResponseHeaders();
-                            htext.split(/\r?\n/).forEach(function (line) { // Some servers use "\n" and some use "\r\n".
+                            htext.split(/\r?\n/).forEach(function (line) {
                                 var m = /^([^\s]*)\s*:\s*(.*)/.exec(line);
                                 if (m) {
                                     headers[m[1].toLowerCase()] = m[2];
@@ -30,13 +37,14 @@
                             });
                             var response = { status: xhr.status, body: xhr.responseText, headers: headers };
                             var data = JSON.stringify({ type: "XCOP-RESPONSE", id: id, response: response });
-                            msg.source.postMessage(data, msg.origin);
+                            msg.source.postMessage(data, origin);
                         }
                     };
                     xhr.send(request.body);
                 }
             };
-            window.parent.postMessage(JSON.stringify({type: "XCOP-READY" }), "*");
-        </script>
-    </body>
+            window.parent.postMessage(JSON.stringify({ type: "XCOP-READY" }), origin);
+        }
+    </script>
+</body>
 </html>
