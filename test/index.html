@@ -1,0 +1,23 @@
+﻿<!doctype html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: monospace;
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        if (!console) {
+            console = {};
+        }
+        console.log = function (msg) {
+            var txt = document.createTextNode(msg + "\n");
+            document.body.appendChild(txt);
+        };
+    </script>
+    <script src="bundle.js"></script>
+</body>
+</html>

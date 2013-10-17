@@ -1,6 +1,8 @@
 # XCOP
 **A NobleJS production**
 
+[![browser support](https://ci.testling.com/NobleJS/xcop.png)](https://ci.testling.com/NobleJS/xcop)
+
 ## Introduction
 
 **XCOP** (XHR Cross Origin Proxy) allows you to make XHR requests to different friendly API services.
@@ -70,6 +72,10 @@ xcop(origin).done(function (xhr) {
 });
 
 ```
+
+### Live Demo
+
+You can also see XCOP in action, live, on the Interwebs! Check out this fiddle. <http://jsfiddle.net/eGLLy/1/>
 
 ### Origin White Listing
 

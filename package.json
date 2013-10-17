@@ -1,37 +1,51 @@
 {
-    "name": "xcop",
-    "description": "An XHR Cross Origin Proxy allows you to make XHR requests to different friendly API services.",
-    "version": "0.0.4",
-    "homepage": "https://github.com/NobleJS/xcop",
-    "author": {
-        "name": "NobleJS"
-    },
-    "keywords": [
-        "XHR",
-        "CORS",
-        "XMLHttpRequest"
-    ],
-    "contributors": [
+  "name": "xcop",
+  "description": "An XHR Cross Origin Proxy allows you to make XHR requests to different friendly API services.",
+  "version": "0.0.5",
+  "homepage": "https://github.com/NobleJS/xcop",
+  "author": {
+    "name": "NobleJS"
+  },
+  "keywords": [
+    "XHR",
+    "CORS",
+    "XMLHttpRequest"
+  ],
+  "contributors": [
     {
-        "name": "Donavon West",
-        "email": "email@donavon.com",
-        "url": "http://donavon.com"
+      "name": "Donavon West",
+      "email": "email@donavon.com",
+      "url": "http://donavon.com"
     }
-    ],
-    "dependencies": {
-        "q": ">= 0.8.10"
-    },
-    "license": {
-        "type": "MIT",
-        "url": "http://github.com/NobleJS/xcop/raw/master/LICENSE"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/NobleJS/xcop.git"
-    },
-    "bugs": {
-        "url": "http://github.com/NobleJS/xcop/issues"
-    },
-    "main": "lib/xcop.js",
-    "readmeFilename": "README.md"
+  ],
+  "dependencies": {
+    "q": ">= 0.8.10"
+  },
+  "devDependencies": {
+    "tape": "~2.0.0"
+  },
+  "testling": {
+    "files": "test/tests.js",
+    "browsers": [
+      "chrome/20..latest",
+      "firefox/10..latest",
+      "safari/5..latest",
+      "opera/11.0..latest",
+      "iphone/6..latest",
+      "ipad/6..latest"
+    ]
+  },
+  "license": {
+    "type": "MIT",
+    "url": "http://github.com/NobleJS/xcop/raw/master/LICENSE"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/NobleJS/xcop.git"
+  },
+  "bugs": {
+    "url": "http://github.com/NobleJS/xcop/issues"
+  },
+  "main": "lib/xcop.js",
+  "readmeFilename": "README.md"
 }
