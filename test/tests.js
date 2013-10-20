@@ -1,6 +1,6 @@
 ﻿"use strict";
 var test = require('tape');
-var xcop = require('../.');
+var xcop = require('..');
 var locationOrigin = location.protocol + "//" + location.host;
 var useGoogle = true;
 

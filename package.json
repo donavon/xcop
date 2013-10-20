@@ -22,18 +22,12 @@
     "q": ">= 0.8.10"
   },
   "devDependencies": {
-    "tape": "~2.0.0"
+    "tape": "~2.0.0",
+    "brtapsauce": "~0.1.1"
   },
-  "testling": {
-    "files": "test/tests.js",
-    "browsers": [
-      "chrome/20..latest",
-      "firefox/10..latest",
-      "safari/5..latest",
-      "opera/11.0..latest",
-      "iphone/6..latest",
-      "ipad/6..latest"
-    ]
+  "scripts": {
+    "test-local": "brtapsauce-local test/tests.js",
+    "test": "node test/sauce-runner.js"
   },
   "license": {
     "type": "MIT",
@@ -46,6 +40,5 @@
   "bugs": {
     "url": "http://github.com/NobleJS/xcop/issues"
   },
-  "main": "lib/xcop.js",
-  "readmeFilename": "README.md"
+  "main": "lib/xcop.js"
 }

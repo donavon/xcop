@@ -1,8 +1,6 @@
 # XCOP
 **A NobleJS production**
 
-[![browser support](https://ci.testling.com/NobleJS/xcop.png)](https://ci.testling.com/NobleJS/xcop)
-
 ## Introduction
 
 **XCOP** (XHR Cross Origin Proxy) allows you to make XHR requests to different friendly API services.
@@ -100,9 +98,9 @@ You may choose to use different `xcop.html` files with different white lists for
 
 ### Troubleshooting
 
-**Q.** I'm getting the error "XCOP is unavailable".  
+**Q.** I'm getting the error "XCOP is unavailable".
 **A.** You likely have not setup xcop.html in the root of the origin server that you are hitting with XCOP.
 In the example above, that would be https://api.example.com/xcop.html
 
-**Q.** How cool is XCOP?  
+**Q.** How cool is XCOP?
 **A.** Very!

@@ -1,2 +1,5 @@
 /node_modules/
-/test/bundle.js
+npm-debug.log
+sauce_connect.log
+
+/test/
