@@ -43,7 +43,7 @@
                     xhr.send(request.body);
                 }
             };
-            window.parent.postMessage(JSON.stringify({ type: "XCOP-READY" }), origin);
+            window.parent.postMessage(JSON.stringify({ type: "XCOP-READY", protocolVersion: "1.0" }), origin);
         }
     </script>
 </body>
