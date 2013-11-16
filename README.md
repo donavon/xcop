@@ -10,7 +10,7 @@ your site to get some information. You'd like these XHR calls to use HTTPS (mayb
 served the HTML, CSS, JavaScript, and images from an HTTP server and that would constitute a cross origin call.
 Historicly, you were left with few options:
 
-1. Serve the entire site from the same origin as the web services. ex: https://api.example.com (Boo, hiss)
+1. Serve the site from the same origin as the web services, which may mean unnecessarily serving HTTPS images and CSS. ex: https://api.example.com (Boo, hiss)
 2. Use CORS. But this limits you to GET and POST and does not allow you to set headers.
 3. Use a reverse proxy server on the domain that served your html file. This can be, in some cases, dificult to setup, and is slower than
 hitting the destination server directly. Plus it leaves the information in the clear on the first leg of it's journey (i.e. not HTTPS).
@@ -71,21 +71,23 @@ xcop(origin).done(function (xhr) {
 
 ```
 
+### Live Demo
+
+You can also see XCOP in action, live, on the Interwebs! Check out this fiddle. <http://jsfiddle.net/eGLLy/1/>
+
 ### Origin White Listing
 
 Instead of opening your web service up to other websites, you may now "white list" which origins are allowed to access your server.
-To do so, edit the `xcop.html` file served by the destination server. Here is how it looks by default:
+To do so, edit the `xcop.html` file served by the destination server. By default, XCOP allows access from any origin.
 
 ``` javascript
-var checkWhiteList = false;
-var whiteList = ["http://127.0.0.1:9000", "http://localhost:9000"];
+var whiteList = [];
 ```
 
-`checkWhiteList` defaults to `false`. Set this to `true` and replace the `whteList` array with the list of your allows origins.
+To setup a whitelist, replace the `whteList` array with the list of your allows origins.
 In our example above, you may chose to only allow http://www.example.com to use your api. If so, your `xcop.html` file will read:
 
 ``` javascript
-var checkWhiteList = true;
 var whiteList = ["http://www.example.com"];
 ```
 
