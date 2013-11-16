@@ -6,8 +6,8 @@
 <body>
     <script>
         "use strict";
-        var checkWhiteList = true;
-        var whiteList = ["http://127.0.0.1:9000", "http://localhost:9000"];
+        var checkWhiteList = false;
+        var whiteList = [];
 
         var origin = decodeURIComponent(location.search.match(/[\?&]origin=([^&]*)/)[1]);
         if (checkWhiteList && whiteList.indexOf(origin) === -1) {
