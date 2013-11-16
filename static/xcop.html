@@ -9,7 +9,7 @@
         var checkWhiteList = true;
         var whiteList = ["http://127.0.0.1:9000", "http://localhost:9000"];
 
-        var origin = decodeURIComponent(location.search.match(/\?origin=(.*)/)[1]);
+        var origin = decodeURIComponent(location.search.match(/[\?&]origin=([^&]*)/)[1]);
         if (checkWhiteList && whiteList.indexOf(origin) === -1) {
             window.parent.postMessage(JSON.stringify({ type: "XCOP-ERROR", message: "XCOP: Origin not in white list." }), origin);
         } else {
