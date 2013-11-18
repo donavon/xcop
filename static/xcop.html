@@ -6,11 +6,10 @@
 <body>
     <script>
         "use strict";
-        var checkWhiteList = false;
         var whiteList = [];
 
         var origin = decodeURIComponent(location.search.match(/[\?&]origin=([^&]*)/)[1]);
-        if (checkWhiteList && whiteList.indexOf(origin) === -1) {
+        if (whiteList.length && whiteList.indexOf(origin) === -1) {
             window.parent.postMessage(JSON.stringify({ type: "XCOP-ERROR", message: "XCOP: Origin not in white list." }), origin);
         } else {
             window.onmessage = function (msg) {
