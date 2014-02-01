@@ -57,16 +57,18 @@ var xcop = require("xcop");
 var origin = "https://api.example.com";
 xcop(origin).done(function (xhr) {
     var request = {
-        url: "/items",
+        url: "/items/123",
         headers: {"content-type": "application/json"},
-        method: "POST",
-        body: JSON.stringify({name: "new item"})
+        method: "PUT",
+        body: JSON.stringify({id: 123, name: "new name"})
     };
     xhr(request).done(function(response) {
         console.log(response.status + " " + response.body);
+    }, function (err) {
+        console.error("Something went wrong.", err.message);
     });
 }, function (err) {
-    console.log(err.message);
+    console.error(err.message);
 });
 
 ```
