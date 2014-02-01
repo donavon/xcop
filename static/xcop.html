@@ -24,25 +24,32 @@
                         xhr.setRequestHeader(key, request.headers[key]);
                     });
 
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState === xhr.DONE) {
-                            var headers = {};
-                            var htext = xhr.getAllResponseHeaders();
-                            htext.split(/\r?\n/).forEach(function (line) {
-                                var m = /^([^\s]*)\s*:\s*(.*)/.exec(line);
-                                if (m) {
-                                    headers[m[1].toLowerCase()] = m[2];
+                    xhr.onload = function () {
+                        var headers = {};
+                        var htext = xhr.getAllResponseHeaders();
+                        htext.split(/\r?\n/).forEach(function (line) {
+                            var m = /^([^\s]*)\s*:\s*(.*)/.exec(line);
+                            if (m) {
+                                var key = m[1].toLowerCase();
+                                if (headers[key]) {
+                                    headers[key] += ", " + m[2];
+                                } else {
+                                    headers[key] = m[2];
                                 }
-                            });
-                            var response = { status: xhr.status, body: xhr.responseText, headers: headers };
-                            var data = JSON.stringify({ type: "XCOP-RESPONSE", id: id, response: response });
-                            msg.source.postMessage(data, origin);
-                        }
+                            }
+                        });
+                        var response = { status: xhr.status, body: xhr.responseText, headers: headers };
+                        var data = JSON.stringify({ type: "XCOP-RESPONSE", id: id, response: response });
+                        msg.source.postMessage(data, origin);
+                    };
+                    xhr.onerror = function (err) {
+                        var data = JSON.stringify({ type: "XCOP-RESPONSE-ERROR", id: id });
+                        msg.source.postMessage(data, origin);
                     };
                     xhr.send(request.body);
                 }
             };
-            window.parent.postMessage(JSON.stringify({ type: "XCOP-READY", protocolVersion: "1.0" }), origin);
+            window.parent.postMessage(JSON.stringify({ type: "XCOP-READY", protocolVersion: "1.1" }), origin);
         }
     </script>
 </body>
