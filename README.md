@@ -1,5 +1,5 @@
 # XCOP
-**A NobleJS production**
+**A YuzuJS production**
 
 ## Introduction
 
@@ -75,7 +75,7 @@ xcop(origin).done(function (xhr) {
 
 ### Live Demo
 
-You can also see XCOP in action, live, on the Interwebs! Check out this fiddle. <http://jsfiddle.net/eGLLy/1/>
+You can also see XCOP in action, live, on the Interwebs! Check out this fiddle. <http://jsfiddle.net/eGLLy/4/>
 
 ### Origin White Listing
 
@@ -86,8 +86,9 @@ To do so, edit the `xcop.html` file served by the destination server. By default
 var whiteList = [];
 ```
 
-To setup a whitelist, replace the `whteList` array with the list of your allows origins.
-In our example above, you may chose to only allow http://www.example.com to use your api. If so, your `xcop.html` file will read:
+To setup a whitelist, replace the `whiteList` array with the list of your allows origins.
+In our example above, you may chose to only allow http://www.example.com to use your api.
+If so, your `xcop.html` file will read:
 
 ``` javascript
 var whiteList = ["http://www.example.com"];
@@ -104,3 +105,6 @@ In the example above, that would be https://api.example.com/xcop.html
 
 **Q.** How cool is XCOP?  
 **A.** Very!
+
+### License
+For use under [MIT license](http://github.com/YuzuJS/xcop/raw/master/LICENSE)
