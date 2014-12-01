@@ -2,9 +2,9 @@
     "name": "xcop",
     "description": "An XHR Cross Origin Proxy allows you to make XHR requests to different friendly API services.",
     "version": "0.0.6",
-    "homepage": "https://github.com/NobleJS/xcop",
+    "homepage": "https://github.com/YuzuJS/xcop",
     "author": {
-        "name": "NobleJS"
+        "name": "YuzuJS"
     },
     "keywords": [
         "XHR",
@@ -23,14 +23,14 @@
     },
     "license": {
         "type": "MIT",
-        "url": "http://github.com/NobleJS/xcop/raw/master/LICENSE"
+        "url": "http://github.com/YuzuJS/xcop/raw/master/LICENSE"
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/NobleJS/xcop.git"
+        "url": "git://github.com/YuzuJS/xcop.git"
     },
     "bugs": {
-        "url": "http://github.com/NobleJS/xcop/issues"
+        "url": "http://github.com/YuzuJS/xcop/issues"
     },
     "main": "lib/xcop.js",
     "readmeFilename": "README.md"
