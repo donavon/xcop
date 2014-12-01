@@ -75,7 +75,7 @@ xcop(origin).done(function (xhr) {
 
 ### Live Demo
 
-You can also see XCOP in action, live, on the Interwebs! Check out this fiddle. <http://jsfiddle.net/eGLLy/4/>
+You can also see XCOP in action, live, on the Interwebs! Check out this fiddle. <http://jsfiddle.net/donavon/6tozto6v/>
 
 ### Origin White Listing
 
