@@ -19,7 +19,7 @@
     }
     ],
     "dependencies": {
-        "q": "0.8.10 - 1"
+        "q": "^1.4.1"
     },
     "license": {
         "type": "MIT",
