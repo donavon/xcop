@@ -5,15 +5,15 @@
 
 **XCOP** (XHR Cross Origin Proxy) allows you to make XHR requests to different friendly API services.
 
-I'm sure that you've faced this delema... You web application needs to "phone home" via XMLHttpRequest call back to
+I'm sure that you've faced this dilemma... You web application needs to "phone home" via XMLHttpRequest call back to
 your site to get some information. You'd like these XHR calls to use HTTPS (maybe they contain some PII). The problem is that you've
 served the HTML, CSS, JavaScript, and images from an HTTP server and that would constitute a cross origin call.
-Historicly, you were left with few options:
+Historically, you were left with few options:
 
-1. Serve the site from the same origin as the web services, which may mean unnecessarily serving HTTPS images and CSS. ex: https://api.example.com (Boo, hiss)
-2. Use CORS. But this limits you to GET and POST and does not allow you to set headers.
-3. Use a reverse proxy server on the domain that served your html file. This can be, in some cases, dificult to setup, and is slower than
-hitting the destination server directly. Plus it leaves the information in the clear on the first leg of it's journey (i.e. not HTTPS).
+1. Serve the site from the same origin as the web services.
+2. Use CORS. But this adds latency as the browser must make an additional OPTIONS request before the original request. it also requires setting up CORS headers on the server side.
+3. Use a reverse proxy server on the domain that served your HTML file. This can be, in some cases, difficult to setup, and is slower than
+hitting the destination server directly.
 
 ## Enter XCOP!
 
@@ -30,19 +30,25 @@ $ npm install xcop
 
 ### Usage
 
-XCOP us easy to use. Just call xcop with the origin that you would like to communicate with (xcop.html must be in the root of the cross origin server).
-XCOP will return a Q promise that is fulfilled with an XHR object.
+XCOP us easy to use. Just call XCOP with the origin that you would like to communicate with (xcop.html must be in the root of the cross origin server).
+XCOP will return a promise that is fulfilled with an XHR object.
 
-The XHR object accepts a request object that consists of the following:
+#### Options
+You can pass the following options as the second parameter to XCOP:
+* **useCors** - Instructs XCOP that, even if the origin is different, it should use the built-in XHR. CORS must be setup on the server to use HTTP verbs other than GET/POST and headers.
+* **proxyTimeout** - Time in seconds to wait for XCOP to be ready. (default = 15)
+* **xcopDocument** - File name of the "xcop.html" file on the server. Defaults to "/xcop.html".
 
-* **url** - the url that you would like to hit, relative to the origin.
+The returned XHR object accepts a request object that consists of the following:
+
+* **url** - the URL that you would like to hit, relative to the origin.
 * **headers** - an object with key/value pairs.
 * **method** - the HTTP method (default = "GET").
 * **body** - a string containing optional data sent in a POST or PUT.
 
 It returns a promise that is fulfilled with a response object. The response object contains the following:
 
-* **status** - the HTTP status reponse (ex: 200 for "OK")
+* **status** - the HTTP status response (ex: 200 for "OK")
 * **body** - the body of the response
 * **headers** - a response header object with key/value pairs.
 
@@ -87,7 +93,7 @@ var whiteList = [];
 ```
 
 To setup a whitelist, replace the `whiteList` array with the list of your allows origins.
-In our example above, you may chose to only allow http://www.example.com to use your api.
+In our example above, you may chose to only allow http://www.example.com to use your API.
 If so, your `xcop.html` file will read:
 
 ``` javascript

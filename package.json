@@ -1,7 +1,7 @@
 {
     "name": "xcop",
     "description": "An XHR Cross Origin Proxy allows you to make XHR requests to different friendly API services.",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "homepage": "https://github.com/YuzuJS/xcop",
     "author": {
         "name": "YuzuJS"
@@ -19,7 +19,7 @@
     }
     ],
     "dependencies": {
-        "q": "0.8.10 - 1"
+        "q": "^1.4.1"
     },
     "license": {
         "type": "MIT",
