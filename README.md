@@ -1,5 +1,4 @@
 # XCOP
-**A YuzuJS production**
 
 ## Introduction
 
@@ -113,4 +112,4 @@ In the example above, that would be https://api.example.com/xcop.html
 **A.** Very!
 
 ### License
-For use under [MIT license](http://github.com/YuzuJS/xcop/raw/master/LICENSE)
+For use under [MIT license](http://github.com/donavon/xcop/raw/master/LICENSE)
