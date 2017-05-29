@@ -1,7 +1,7 @@
 {
     "name": "xcop",
     "description": "An XHR Cross Origin Proxy allows you to make XHR requests to different friendly API services.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "homepage": "https://github.com/donavon/xcop",
     "author": {
         "name": "Donavon West",
